@@ -8,17 +8,12 @@ import RouteBase from '../components/router-overview';
 import RouteSecret from '../components/route-settings';
 import RouteLogin from '../components/route-login';
 
-import 'react-netlify-identity-widget/styles.css';
-
 const Dashboard = ({ location }) => {
     useEffect(() => {
-        const matchPaths = () => {
-            if (location.pathname.match(/^\/dashboard\/?$/)) {
-                navigate('/dashboard/login', { replace: true })
-            }
+        if (location.pathname.match(/^\/dashboard\/?$/)) {
+            navigate('/dashboard/login', { replace: true });
         }
-        matchPaths();
-    }, [location])
+    }, [location.pathname]);
     return (
         <Layout>
             <Profile />
@@ -28,6 +23,7 @@ const Dashboard = ({ location }) => {
                 <RouteLogin path="/dashboard/login"/>
             </Router>
             <IdentityModal
+                aria-label="Login"
                 showDialog={true} />
         </Layout>
 

@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import './layout.css';
 import { IdentityContextProvider } from 'react-netlify-identity-widget';
+import 'react-netlify-identity-widget/styles.css';
+
+import './layout.css';
 
 const Layout = ({ children }) => (
     <IdentityContextProvider
